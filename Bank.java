@@ -12,16 +12,25 @@
 public class Bank
 {
     // instance variables - replace the example below with your own
-    private static double creditInterestRate, investmentInterestRate,premiumInterestRate;
-    private static int lastCustID = 1000, nextCustID = 1000, numOfCurrentCustomer, nextID;
-    public static int maxNumOfCustomers = 20;
-    private static String closeTime, phone, startTime;
-    public static String website, bankName= "JBANK", bankAddress = "1234 JavaStreet, AnyCity, ThisState, 34567";
+    private static double creditInterestRate, investmentInterestRate, premiumInterestRate;
+    private static int lastCustID, nextCustID, numOfCurrentCustomer, nextID;
+    public static int maxNumOfAcctsPerCustomer = 4;
+    public  static int maxNumOfCustomers = 20;
+    private static String closeTime, startTime;
+    public static String website, phone;
+    public static String Name= "JBANK", Address = "1234 JavaStreet, AnyCity, ThisState, 34567";
     
+    private Bank(){
+    
+    
+    }
+    
+    /*
     public static String getAddress() {
         return "";
     }
-    
+    */
+   
     public static double getCreditRate() {
         return 0;
     }
@@ -42,10 +51,11 @@ public class Bank
         return 0;
     }
     
-    public static String getName() {
+   /*
+   public static String getName() {
         return "";
-    }
-    
+     }
+   */
     
      /**
          * This method counts the number of the number of customer ID everytime new customer ID is 
@@ -54,9 +64,26 @@ public class Bank
          * last customer ID. The last customer ID will be modified to the newly customer ID for future use.
          */
     public static int getNextID() {
-        nextCustID = lastCustID + 1;
-        lastCustID = nextCustID;
-        return nextCustID;
+        int currentCustID;
+        
+        if (nextCustID == 0){
+            nextCustID= 1000;
+            numOfCurrentCustomer++;
+            currentCustID = nextCustID; 
+            return currentCustID;
+        } 
+        else if (numOfCurrentCustomer == maxNumOfCustomers){
+            currentCustID = 0;      
+            return currentCustID;
+        }
+        else {
+            lastCustID = nextCustID;
+            nextCustID++;
+            numOfCurrentCustomer++;
+            currentCustID = nextCustID;
+            return currentCustID;
+        }
+        
     }
         
     
@@ -85,12 +112,9 @@ public class Bank
         
     }
     
+    /*
     public static int getNumOfCurrentCustomer(){
         return numOfCurrentCustomer;
     }
-    
-    public static int getNextId(){
-        return nextCustID;
-        
-    }
+    */
 }

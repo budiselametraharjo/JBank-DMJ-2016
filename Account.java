@@ -16,7 +16,9 @@ public class Account
     private String id;
 
     public Account() {
-
+        acctType = 'S';
+        balance= 10.00;
+               
     }
 
     public Account(char type, double amount) {

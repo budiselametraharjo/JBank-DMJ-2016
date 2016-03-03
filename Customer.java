@@ -18,11 +18,17 @@ public class Customer
                                                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     
     
-    public Customer() {
-        
+    public Customer(String fname, String lname) {
+       this(fname, lname, "none");
+            
     }
     
     public Customer(String fname, String lname, String dob) {
+        firstName = fname;
+        lastName = lname;
+        dateOfBirth = dob;
+        custId = Bank.getNextID();
+        
     }
     
     public Customer(String firstName, String lastName, String dateOfBirth, int custId){

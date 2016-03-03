@@ -31,7 +31,7 @@ public class Teller
     {
        
         
-        Customer c1 = new Customer();
+        Customer c1 = new Customer("s","s");
         Account a1 = new Account(), acc;
         c1.setName("Sanadhi","Sutandi");
         System.out.println(c1.getName());
